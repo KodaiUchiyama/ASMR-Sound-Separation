@@ -17,7 +17,8 @@ num_gpu=1
 
 #path
 model_path = './saved_AV_models/AVmodel-1p-001-0.29544.h5'
-result_path = './predict/'
+#model_path = './saved_AV_models/AVmodel-1p-003-0.25622.h5'
+result_path = './predict_testdata/'
 os.makedirs(result_path,exist_ok=True)
 
 database = './data/AV_model_database/mix/'
@@ -73,6 +74,7 @@ if num_gpu>1:
             filename = result_path+str(single_idxs[i])+'.wav'
             wavfile.write(filename,16000,T)
 
+count = 0
 if num_gpu<=1:
     for line in test_file:
         mix,single_idxs,face_emb = get_data_name(line,people,database,face_emb_path)
@@ -84,7 +86,7 @@ if num_gpu<=1:
         # print(mix_ex.shape) #(1, 298, 257, 2)
         # print(face_emb_ex.shape) #(1, 75, 1, 1792, 1)
         cRMs = av_model.predict([mix_ex,face_emb_ex])
-        print(cRMs.shape) # (1, 298, 257, 2, 1)
+        #print(cRMs.shape) # (1, 298, 257, 2, 1)
         cRMs = cRMs[0]
         prefix =''
         for idx in single_idxs:
@@ -96,3 +98,7 @@ if num_gpu<=1:
         T = utils.fast_istft(F,power=False)
         filename = result_path+prefix+str(single_idxs[0])+'.wav'
         wavfile.write(filename,16000,T)
+
+        count = count + 1
+        if count%500 == 0:
+            print(count)

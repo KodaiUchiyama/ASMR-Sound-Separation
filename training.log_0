@@ -1,2 +1,3 @@
+// learning rate 0.0001
 epoch,loss,lr,val_loss
 0,0.28767905971048563,1e-04,0.2954431474208832

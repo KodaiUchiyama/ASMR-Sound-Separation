@@ -1,0 +1,8 @@
+#exp1  learning rate 0.0001
+AVmodel-1p-001-0.29544.h5  
+
+#exp2  learning rate 0.00001
+AVmodel-1p-001-0.35802.h5  
+
+#exp3 small dataset  AVmodel-1p-003-0.25622.h5
+AVmodel-1p-001-0.34066.h5  AVmodel-1p-002-0.29508.h5
