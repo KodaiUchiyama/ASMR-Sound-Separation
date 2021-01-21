@@ -56,11 +56,16 @@ rlr = LearningRateScheduler(scheduler, verbose=1)
 # format: mix.npy food_single.npy 
 trainfile = []
 valfile = []
+'''
+with open((database_path + 'AV_log/' + 'AVdataset_train_small.txt'), 'r') as t:
+    trainfile = t.readlines()
+with open((database_path + 'AV_log/' + 'AVdataset_val_small.txt'), 'r') as v:
+    valfile = v.readlines()
+'''
 with open((database_path + 'AV_log/' + 'AVdataset_train.txt'), 'r') as t:
     trainfile = t.readlines()
 with open((database_path + 'AV_log/' + 'AVdataset_val.txt'), 'r') as v:
     valfile = v.readlines()
-
 # the training steps
 if resume_state:
     latest_file = latest_file(model_path + '/')
