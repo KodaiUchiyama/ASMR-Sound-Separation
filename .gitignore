@@ -5,9 +5,8 @@ data/audio_data
 data/video_data
 data/csv/avspeech_train.csv
 
-predict/
-predict_beta/
-predict_testdata/
+result/
+video_data/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
