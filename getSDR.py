@@ -15,7 +15,8 @@ import mir_eval
 
 truesound_file = "/home/kody.uchiyama/speech_separation-master/data/audio/norm_audio_train/"
 # trim_audio_train0-50.wav 
-predicted_file = './predict_testdata/' 
+predicted_file = './predict_testdata_exp1/' 
+#predicted_file = './predict_testdata_AO/' 
 # 1-111_00091_1-111.wav
 pesq_list = []
 

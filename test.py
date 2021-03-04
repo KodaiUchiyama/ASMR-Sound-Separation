@@ -16,9 +16,13 @@ people = 2
 num_gpu=1
 
 #path
-model_path = './saved_AV_models/AVmodel-1p-001-0.29544.h5'
+# exp1
+#model_path = './saved_AV_models/AVmodel-1p-001-0.29544.h5'
+# exp new
+model_path = './saved_AV_models/AVmodel-1p-001-0.20517.h5'
+# small data
 #model_path = './saved_AV_models/AVmodel-1p-003-0.25622.h5'
-result_path = './predict_testdata/'
+result_path = './predict_testdata_exp2/'
 os.makedirs(result_path,exist_ok=True)
 
 database = './data/AV_model_database/mix/'
@@ -80,6 +84,7 @@ if num_gpu<=1:
         mix,single_idxs,face_emb = get_data_name(line,people,database,face_emb_path)
         # print(mix.shape) # (298, 257, 2)
         # print(face_emb.shape) # (75, 1, 1792)
+        # モデル入力出力用に型変更
         mix_ex = np.expand_dims(mix,axis=0)
         face_emb_ex = np.expand_dims(face_emb,axis=0)
         face_emb_ex = np.expand_dims(face_emb_ex,axis=4)
